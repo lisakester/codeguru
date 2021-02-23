@@ -3,7 +3,7 @@ import json
 
 print('Loading function')
 dynamo = boto3.client('dynamodb')
-
+testvar_THAT_Name = "not used"
 
 def respond(err, res=None):
     return {
@@ -26,6 +26,11 @@ def lambda_handler(event, context):
     DynamoDB API as a JSON body.
     '''
     #print("Received event: " + json.dumps(event, indent=2))
+    
+    i=1
+    while i<10:
+        print i
+        i++
 
     operations = {
         'DELETE': lambda dynamo, x: dynamo.delete_item(**x),
